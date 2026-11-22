@@ -1,0 +1,16 @@
+# Redirección 301 de lideratech.com.ar a lideratech.ar
+#
+# Cómo usarlo: subí este archivo al document root del hosting que sirve
+# lideratech.com.ar, renombrado exactamente como ".htaccess" (sin extensión).
+#
+# Si el panel de Donweb ya permite configurar un redireccionamiento 301
+# (Dominios > Redirecciones), usá eso y este archivo queda como respaldo.
+#
+# Verificá antes de dar por hecho que funciona:
+#   curl -I http://lideratech.com.ar/
+#   curl -I https://lideratech.com.ar/
+# La respuesta debe ser 301 y Location: https://lideratech.ar/ (o con el
+# path original: https://lideratech.ar/lo-que-haya-pedido).
+
+RewriteEngine On
+RewriteRule ^(.*)$ https://lideratech.ar/$1 [R=301,L]

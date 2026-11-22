@@ -11,12 +11,12 @@ Nuevo proyecto de Lideratech. Hoy es un sitio estático de espera para
 | Área | Estado |
 | --- | --- |
 | Sitio | Página de espera implementada (`index.html`, sin build) |
-| Dominio | `CNAME` con `lideratech.ar`; falta apuntar el DNS al hosting |
-| Pages | Bloqueado: plan Free no habilita Pages sobre repos privado |
-| Redirección `.com.ar` → `.ar` | JS en el `<head>`; falta el 301 del servidor de origen |
+| Hosting | Donweb (DNS y hosting); el repo queda como fuente de verdad |
+| Dominio | `CNAME` con `lideratech.ar` para el día que se use GitHub Pages |
+| Redirección `.com.ar` → `.ar` | `deploy/com-ar/.htaccess` (301 en Apache) + JS de respaldo |
 | Stack / runtime | HTML + CSS + JS estático, sin dependencias ni bundler |
 | CI | Por definir |
-| Documentación | Este README |
+| Documentación | Este README y `deploy/README.md` |
 
 ## Estructura
 
@@ -46,7 +46,7 @@ Nuevo proyecto de Lideratech. Hoy es un sitio estático de espera para
 
 ### Registros DNS
 
-Para `lideratech.ar` (dominio raíz, sin `www`):
+Los DNS de `lideratech.ar` están en Donweb. Para el dominio raíz (sin `www`):
 
 | Tipo | Nombre | Valor |
 | --- | --- | --- |
@@ -60,8 +60,21 @@ Para `lideratech.ar` (dominio raíz, sin `www`):
 | AAAA | `@` | `2606:50c0:8000::111` |
 | CNAME | `www` | `lideratech.ar` |
 
-El certificado TLS lo emite y renueva GitHub automáticamente una vez que los
-registros apuntan y el `CNAME` está en `main`.
+Estos son los de GitHub Pages. **Si el sitio se publica en Donweb, no se usan:**
+en Donweb el dominio se resuelve con los A/AAAA del servidor de hosting, y
+`www` se redirige a la raíz desde el panel (Dominios > Redirecciones). La
+tabla queda documentada para el caso de que el hosting alguna vez sea GitHub
+Pages.
+
+El certificado TLS lo emite y renueva el hosting automáticamente una vez que
+los registros apuntan.
+
+## Publicación
+
+El sitio se publica en Donweb subiendo `index.html` y `assets/` al document
+root: no hay build ni paso de compilación. El procedimiento completo, con los
+registros DNS y la verificación del 301, está en
+[`deploy/README.md`](deploy/README.md).
 
 ## Cómo trabajar
 
