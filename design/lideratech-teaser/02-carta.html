@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lideratech — Muy pronto</title>
+<meta name="description" content="Muy pronto estaremos liderando el futuro de quienes hacen tecnología en Argentina.">
+<link rel="canonical" href="https://lideratech.ar/">
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  :root {
+    --paper: #f2e9d9;
+    --paper-2: #e8dcc7;
+    --ink: #201d18;
+    --ink-soft: #6d6355;
+    --terracotta: #a8482a;
+    --seal: #8d2f21;
+    --rule: rgba(32, 29, 24, 0.16);
+    --sans: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --serif: ui-serif, Georgia, "Iowan Old Style", "Times New Roman", serif;
+    --mono: ui-monospace, "Cascadia Mono", "Consolas", "SFMono-Regular", monospace;
+  }
+  html, body { min-height: 100%; }
+  body {
+    margin: 0;
+    background:
+      radial-gradient(120% 90% at 50% -10%, #fbf5ea 0%, var(--paper) 45%, var(--paper-2) 100%);
+    color: var(--ink);
+    font-family: var(--sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  .desk {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 56px 24px;
+  }
+  /* Luz de escritorio sobre la hoja */
+  .desk::before {
+    content: "";
+    position: fixed; inset: 0; pointer-events: none;
+    background: radial-gradient(60% 50% at 50% 0%, rgba(255, 252, 244, 0.9), transparent 70%);
+  }
+  .sheet {
+    position: relative;
+    width: min(720px, 100%);
+    background: #fdf8ef;
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: 64px 68px 56px;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.7) inset, 0 24px 60px -30px rgba(32, 29, 24, 0.55);
+  }
+  /* Marca de agua: un mapa que todavía no tiene nombre */
+  .sheet::after {
+    content: "";
+    position: absolute; inset: 0; pointer-events: none;
+    background-image:
+      linear-gradient(to right, rgba(32, 29, 24, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(32, 29, 24, 0.05) 1px, transparent 1px);
+    background-size: 32px 32px;
+    opacity: 0.5;
+    mask-image: radial-gradient(70% 60% at 50% 40%, transparent 55%, #000 100%);
+  }
+  .head {
+    display: flex; align-items: flex-start; justify-content: space-between;
+    gap: 20px; margin-bottom: 44px;
+  }
+  .letterhead {
+    font-family: var(--mono);
+    font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  /* Sello de lacre */
+  .seal {
+    width: 62px; height: 62px; flex: none;
+    border-radius: 50%;
+    background: radial-gradient(circle at 34% 30%, #b4482f, var(--seal) 62%, #6d2018);
+    color: #fbeee6;
+    display: grid; place-items: center;
+    font-family: var(--serif); font-size: 26px; letter-spacing: 0.04em;
+    box-shadow: 0 8px 18px -8px rgba(109, 32, 24, 0.9), 0 0 0 1px rgba(109, 32, 24, 0.35);
+    transform: rotate(-6deg);
+  }
+  h1 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(27px, 3.4vw, 40px);
+    line-height: 1.22;
+    letter-spacing: -0.01em;
+    margin: 0 0 26px;
+    text-wrap: pretty;
+  }
+  h1 em {
+    font-style: italic;
+    color: var(--terracotta);
+  }
+  p.body {
+    font-family: var(--serif);
+    font-size: 17.5px; line-height: 1.75;
+    color: #3a352d;
+    margin: 0 0 22px;
+    max-width: 56ch;
+  }
+  p.body .firma {
+    display: block;
+    margin-top: 34px;
+    font-style: italic;
+    color: var(--ink);
+  }
+  .firma span {
+    display: block;
+    font-family: var(--mono);
+    font-style: normal;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-top: 6px;
+  }
+  /* Margen cifrado: la parte misteriosa que se deja leer */
+  .margen {
+    margin-top: 34px;
+    border-top: 1px solid var(--rule);
+    padding-top: 22px;
+    display: grid;
+    gap: 14px;
+  }
+  .cipher {
+    font-family: var(--mono);
+    font-size: 13px;
+    letter-spacing: 0.14em;
+    color: var(--ink-soft);
+    word-break: break-word;
+  }
+  .decode {
+    justify-self: start;
+    font-family: var(--mono);
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--terracotta);
+    background: transparent;
+    border: 1px solid rgba(168, 72, 42, 0.4);
+    border-radius: 999px;
+    padding: 12px 20px;
+    min-height: 44px;
+    cursor: pointer;
+    transition: background-color .2s ease, border-color .2s ease, color .2s ease;
+  }
+  .decode:hover { background: rgba(168, 72, 42, 0.08); border-color: var(--terracotta); }
+  .decode:focus-visible { outline: 2px solid var(--terracotta); outline-offset: 3px; }
+  .plain {
+    font-family: var(--serif);
+    font-size: 16px; line-height: 1.6;
+    color: #3a352d;
+    margin: 0;
+    display: none;
+  }
+  .plain.visible { display: block; }
+  footer {
+    margin-top: 40px;
+    padding-top: 18px;
+    border-top: 1px solid var(--rule);
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 16px; flex-wrap: wrap;
+  }
+  .meta {
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em;
+    color: var(--ink-soft); text-transform: uppercase;
+  }
+  .domain {
+    font-family: var(--mono); font-size: 12px; letter-spacing: 0.12em;
+    color: var(--ink); text-decoration: none;
+    border-bottom: 1px solid var(--terracotta);
+    padding: 12px 2px;
+    min-height: 44px;
+    display: inline-flex; align-items: center;
+  }
+  .domain:hover { color: var(--terracotta); }
+  .domain:focus-visible { outline: 2px solid var(--terracotta); outline-offset: 3px; }
+  @media (max-width: 620px) {
+    .desk { padding: 28px 16px; }
+    .sheet { padding: 38px 26px 34px; }
+    .seal { width: 52px; height: 52px; font-size: 22px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+  }
+</style>
+</head>
+<body>
+<div class="desk">
+  <article class="sheet">
+    <div class="head">
+      <span class="letterhead">Lideratech · Argentina</span>
+      <span class="seal" aria-hidden="true">L</span>
+    </div>
+
+    <h1>
+      Muy pronto estaremos <em>liderando el futuro</em> de quienes hacen tecnología en Argentina.
+    </h1>
+
+    <p class="body">
+      Escribimos esto antes de poder contarte qué somos, porque preferimos que nos
+      conozcas por lo que vamos a hacer y no por lo que prometemos en un cartel.
+      <span class="firma">Lideratech<span>El equipo, en Buenos Aires</span></span>
+    </p>
+
+    <section class="margen" aria-labelledby="margen-titulo">
+      <span id="margen-titulo" class="cipher">QHU GH DWUDLWUDLQ SDUD UDUDUDLWUDO OHV WUDVUDODV</span>
+      <button class="decode" type="button" id="decode" aria-expanded="false" aria-controls="plano">
+        Descifrar el margen
+      </button>
+      <p class="plain" id="plano">
+        Lo que estoy Building es simple: un lugar donde el talento técnico argentino
+        no tenga que irse a buscar otra casa. Todavía no lo terminamos. Ya casi.
+      </p>
+    </section>
+
+    <footer>
+      <span class="meta">© 2026 · Buenos Aires, Argentina</span>
+      <a class="domain" href="https://lideratech.ar/">lideratech.ar</a>
+    </footer>
+  </article>
+</div>
+<script>
+  // Si el sitio se sirve en el dominio viejo, la persona va al nuevo.
+  (function () {
+    var h = window.location.hostname.replace(/^www\./i, "");
+    if (h === "lideratech.com.ar" || h === "www.lideratech.com.ar") {
+      window.location.replace("https://lideratech.ar/" + window.location.pathname + window.location.search);
+    }
+  })();
+
+  // El margen se descifra a pedido, no solo.
+  var btn = document.getElementById("decode");
+  var plano = document.getElementById("plano");
+  btn.addEventListener("click", function () {
+    var visible = plano.classList.toggle("visible");
+    btn.setAttribute("aria-expanded", String(visible));
+    btn.textContent = visible ? "Cerrar el margen" : "Descifrar el margen";
+  });
+</script>
+</body>
+</html>

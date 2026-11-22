@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "chosen": "01-umbral.html",
+  "handoffs": {
+    "01-umbral.html": {
+      "status": "implemented",
+      "queued": false,
+      "sentAt": "2026-11-22T21:45:19.331Z",
+      "startedAt": "2026-11-22T21:45:27.553Z",
+      "implementedAt": "2026-11-22T21:46:35.812Z",
+      "note": "Implementado como sitio estático real: index.html + assets/styles.css (tokens y componentes) + assets/main.js. Verificado contra el artboard aprobado (frase exacta, Rosario, canonical a lideratech.ar, sin meta refresh, accesibilidad y motion). Servidor de previsualización activo.",
+      "previewUrl": "http://127.0.0.1:8123/"
+    }
+  }
+}

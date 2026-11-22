@@ -1,0 +1,27 @@
+{
+  "title": "Lideratech — página de espera",
+  "brief": "Página estática temporal para lideratech.com.ar con el mensaje «Muy pronto estaremos liderando el futuro de quienes hacen tecnología en Argentina», que redirige a lideratech.ar. Dirección visual misteriosa, moderna y atrevida, pero cálida y humana.",
+  "artboards": [
+    {
+      "file": "01-umbral.html",
+      "title": "Umbral",
+      "tradeoff": "Cinemático y oscuro: aura luminosa, grano de película y constelación. Presenta la marca con presencia y misterio, pero esconde los detalles de contacto y se siente más frío.",
+      "width": 1440,
+      "height": 900
+    },
+    {
+      "file": "02-carta.html",
+      "title": "Carta",
+      "tradeoff": "Papel, tinta y lacre: se lee como una carta de una empresa real. Es lo más cálido y humano de las tres, con un margen cifrado que se descifra a pedido, a cambio de menos impacto visual inmediato.",
+      "width": 1440,
+      "height": 900
+    },
+    {
+      "file": "03-senal.html",
+      "title": "Señal",
+      "tradeoff": "Consola y transmisión: dato vivo, progreso y tipografía técnica. Es la más moderna ybrava, y la que mejor sugiere que algo se está construyendo; a cambio, el registro tecnológico le quita el tono afectuoso.",
+      "width": 1440,
+      "height": 900
+    }
+  ]
+}
